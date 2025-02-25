@@ -1,15 +1,16 @@
 package com.example.rickmortyapplication.model
 
-import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Url
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 
 interface APIRickyMortyService {
 
     @GET("episode")
-    suspend fun getEpisode(): Response<RickyMortyResponse>
+    suspend fun getEpisodes(@Query("page") page: Int): RickyMortyResponse
 
-    @GET
-    suspend fun getEpisodeByUrl(@Url url: String): Response<RickyMortyResponse>
+    // Obtener detalles de un personaje
+    @GET("character/{id}")
+    suspend fun getCharacterDetails(@Path("id") characterId: Int): Personaje
 }

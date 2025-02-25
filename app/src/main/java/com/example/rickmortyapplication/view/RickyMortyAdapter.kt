@@ -15,7 +15,7 @@ class RickyMortyAdapter(
 
 
     class EpisodeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val episodeTitle: TextView = itemView.findViewById(R.id.NombreEpisodio)
+        val episodeTitle: TextView = itemView.findViewById(R.id.episodeName)
     }
 
 

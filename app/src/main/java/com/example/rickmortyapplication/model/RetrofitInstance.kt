@@ -6,13 +6,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitInstance {
     private const val BASE_URL = "https://rickandmortyapi.com/api/"
 
+    private val retrofit = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 
-    //Utilizamos by lazy para que la variable "api" se inicialice solo cuando se la utilice por primera vez
-    val api: APIRickyMortyService by lazy {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(APIRickyMortyService::class.java)
-    }
+    val api: APIRickyMortyService = retrofit.create(APIRickyMortyService::class.java)
 }
