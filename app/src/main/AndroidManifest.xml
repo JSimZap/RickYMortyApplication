@@ -21,9 +21,6 @@
             android:name=".view.EpisodesActivity"
             android:exported="false" />
         <activity
-            android:name=".view.DetallesPersonajeActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.EpisodioDetalleActivity"
             android:exported="false" />
         <activity
