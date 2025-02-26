@@ -23,6 +23,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="Nombre Personaje"
+            android:textColor="@color/MoradoTitulo"
+            android:textStyle="bold"
             android:textSize="16sp"
             tools:ignore="HardcodedText" />
     </LinearLayout>
