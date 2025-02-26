@@ -11,6 +11,12 @@ import com.example.rickmortyapplication.R
 import com.example.rickmortyapplication.model.Personaje
 import com.squareup.picasso.Picasso
 
+/**
+ * Adaptador para la lista de personajes en un RecyclerView.
+ * @param characters Lista inicial de personajes.
+ * @param onItemClick Acción a ejecutar cuando se hace clic en un personaje.
+ */
+
 class CharactersAdapter(
     private var characters: List<Personaje>,
     private val onItemClick: (Personaje) -> Unit
