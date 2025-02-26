@@ -56,7 +56,10 @@ class EpisodesActivity : AppCompatActivity() {
         }
     }
 
-
+    /**
+     * Obtiene los episodios de la API de manera recursiva si hay múltiples paginas
+     * @param page Número de la pagina actual que se está consultando
+     */
     @SuppressLint("NotifyDataSetChanged")
     private fun obtenerEpisodios(page: Int) {
         lifecycleScope.launch {
@@ -87,7 +90,10 @@ class EpisodesActivity : AppCompatActivity() {
         }
     }
 
-
+    /**
+     * Filtra los episodios según la temporada seleccionada en el Spinner y actualiza el RecyclerView
+     * @param season Temporada seleccionada en el Spinner.
+     */
     private fun mostrarEpisodios(season: String) {
         val filteredEpisodes = listaEpisodios.filter { it.episode.startsWith(season) }
         episodioAdapter.updateEpisodes(filteredEpisodes)

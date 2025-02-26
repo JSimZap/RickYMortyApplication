@@ -14,8 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="13dp"
         android:text="Volver"
         android:textColor="@color/VerdeBoton"
         android:background="@drawable/button_rick_morty"
@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:text="Nombre Episodio"
             android:textColor="@color/MoradoTitulo"
+            android:layout_marginTop="20dp"
             android:textSize="18sp"
             android:textStyle="bold"/>
 
