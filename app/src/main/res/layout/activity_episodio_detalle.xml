@@ -8,23 +8,22 @@
     android:background="@color/white"
     tools:context=".view.EpisodioDetalleActivity">
 
+
     <Button
         android:id="@+id/btnBack"
-        android:layout_width="121dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_gravity="center"
+        android:layout_marginTop="33dp"
         android:text="Volver"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
-
-
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/episodeName"
@@ -32,20 +31,19 @@
             android:layout_height="wrap_content"
             android:text="Nombre Episodio"
             android:textSize="18sp"
-            android:textStyle="bold" />
-
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/episodeAirDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fecha de Emision" />
+            android:text="Fecha de Emision"/>
 
         <TextView
             android:id="@+id/temporadaEpisodio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Temporada" />
+            android:text="Temporada"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/charactersRecyclerView"
@@ -55,8 +53,6 @@
             android:paddingTop="16dp" />
 
     </LinearLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

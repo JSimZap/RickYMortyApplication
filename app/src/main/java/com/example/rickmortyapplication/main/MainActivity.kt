@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btnEpisodes: Button = findViewById(R.id.btnEpisodes)
-        val btnCharacters: Button = findViewById(R.id.btnPersonajes)
 
         btnEpisodes.setOnClickListener {
             val intent = Intent(this, EpisodesActivity::class.java)
