@@ -8,43 +8,55 @@
     android:background="@color/white"
     tools:context=".view.EpisodioDetalleActivity">
 
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Volver"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+
 
         <TextView
             android:id="@+id/episodeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Episode Name"
+            android:text="Nombre Episodio"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
 
         <TextView
             android:id="@+id/episodeAirDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Air Date"/>
+            android:text="Fecha de Emision" />
+
+        <TextView
+            android:id="@+id/temporadaEpisodio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temporada" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/charactersRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="377dp"
+            android:layout_height="537dp"
             android:layout_weight="1"
             android:paddingTop="16dp" />
 
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Volver"
-            android:layout_gravity="center"/>
-
     </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

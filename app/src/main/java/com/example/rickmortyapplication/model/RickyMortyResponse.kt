@@ -31,5 +31,8 @@ data class Episodio(
 data class Personaje(
     @SerializedName("id") val id: Int,
     @SerializedName("name") val name: String,
-    @SerializedName("image") val image: String
-)
+    @SerializedName("image") val image: String,
+    @SerializedName("status") val status: String,
+    @SerializedName("species") val species: String,
+    @SerializedName("gender") val gender: String
+):Serializable

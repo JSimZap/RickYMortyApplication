@@ -25,7 +25,7 @@ class EpisodesAdapter(private var episodes: List<Episodio>) : RecyclerView.Adapt
         holder.bind(episode)
         holder.itemView.setOnClickListener {
             val intent = Intent(context, EpisodioDetalleActivity::class.java)
-            intent.putExtra("episode", episode) // Enviar el episodio seleccionado
+            intent.putExtra("episode", episode)
             context.startActivity(intent)
         }
     }

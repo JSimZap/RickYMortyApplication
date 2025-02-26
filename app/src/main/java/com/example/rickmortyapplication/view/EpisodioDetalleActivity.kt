@@ -1,5 +1,7 @@
 package com.example.rickmortyapplication.view
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -8,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickmortyapplication.R
+import com.example.rickmortyapplication.databinding.ActivityEpisodioDetalleBinding
 import com.example.rickmortyapplication.model.Episodio
 import com.example.rickmortyapplication.model.Personaje
 import com.example.rickmortyapplication.model.RetrofitInstance
@@ -17,23 +20,31 @@ class EpisodioDetalleActivity : AppCompatActivity() {
     private lateinit var episode: Episodio
     private val charactersList: MutableList<Personaje> = mutableListOf<Personaje>()
     private lateinit var charactersAdapter: CharactersAdapter
+    private lateinit var binding: ActivityEpisodioDetalleBinding
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_episodio_detalle)
+        binding = ActivityEpisodioDetalleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         episode = intent.getSerializableExtra("episode") as Episodio
 
 
+        binding.episodeName.text = episode.name
+        binding.episodeAirDate.text = episode.airDate
+        binding.temporadaEpisodio.text = episode.episode
+
         val charactersRecyclerView: RecyclerView = findViewById(R.id.charactersRecyclerView)
-        charactersAdapter = CharactersAdapter(charactersList)
+        charactersAdapter = CharactersAdapter(charactersList) { personaje ->
+            val intent = Intent(this, PersonajeDetalleActivity::class.java)
+            intent.putExtra("personaje", personaje)
+            startActivity(intent)
+        }
         charactersRecyclerView.layoutManager = LinearLayoutManager(this)
         charactersRecyclerView.adapter = charactersAdapter
 
-
-        findViewById<TextView>(R.id.episodeName).text = episode.name
-        findViewById<TextView>(R.id.episodeAirDate).text = episode.airDate
 
 
         obetenrPersonajes()
@@ -47,7 +58,6 @@ class EpisodioDetalleActivity : AppCompatActivity() {
     private fun obetenrPersonajes() {
         lifecycleScope.launch {
             try {
-
                 val characterDetails = episode.characters.map { characterUrl ->
                     val characterId = characterUrl.substringAfterLast("/").toInt()
 
@@ -57,7 +67,10 @@ class EpisodioDetalleActivity : AppCompatActivity() {
                     Personaje(
                         id = response.id,
                         name = response.name,
-                        image = response.image
+                        image = response.image,
+                        status = response.status,
+                        species = response.species,
+                        gender = response.gender
                     )
                 }
 
