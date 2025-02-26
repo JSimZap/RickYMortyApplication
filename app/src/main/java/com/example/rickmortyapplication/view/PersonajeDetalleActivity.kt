@@ -8,6 +8,11 @@ import com.example.rickmortyapplication.databinding.ActivityPersonajeDetalleBind
 import com.example.rickmortyapplication.model.Personaje
 import com.squareup.picasso.Picasso
 
+
+/**
+ * Activity que muestra los detalles de un personaje de Rick and Morty
+ * Se encarga de recibir un objeto Personaje y mostrar sus atributos en la interfaz
+ */
 class PersonajeDetalleActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPersonajeDetalleBinding

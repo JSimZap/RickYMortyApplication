@@ -15,6 +15,11 @@ import com.example.rickmortyapplication.model.Personaje
 import com.example.rickmortyapplication.model.RetrofitInstance
 import kotlinx.coroutines.launch
 
+
+/**
+ * Activity que muestra los detalles de un episodio seleccionado
+ * Permite visualizar la informacion del episodio y la lista de personajes que aparecen en él
+ */
 class EpisodioDetalleActivity : AppCompatActivity() {
     private lateinit var episode: Episodio
     private val charactersList: MutableList<Personaje> = mutableListOf<Personaje>()
@@ -54,6 +59,10 @@ class EpisodioDetalleActivity : AppCompatActivity() {
     }
 
 
+    /**
+     * Obtiene los detalles de los personajes que aparecen en el episodio mediante peticiones a la API
+     * Actualiza la lista de personajes en el RecyclerView
+     */
     private fun obetenrPersonajes() {
         lifecycleScope.launch {
             try {

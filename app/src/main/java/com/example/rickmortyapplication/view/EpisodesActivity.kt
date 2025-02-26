@@ -16,6 +16,11 @@ import com.example.rickmortyapplication.model.Episodio
 import com.example.rickmortyapplication.model.RetrofitInstance
 import kotlinx.coroutines.launch
 
+
+/**
+ * Activity que muestra la lista de episodios de la serie Rick and Morty
+ * Permite filtrar los episodios por temporada
+ */
 class EpisodesActivity : AppCompatActivity() {
     private lateinit var temporadaAdapter: ArrayAdapter<String>
     private val listaEpisodios = mutableListOf<Episodio>()

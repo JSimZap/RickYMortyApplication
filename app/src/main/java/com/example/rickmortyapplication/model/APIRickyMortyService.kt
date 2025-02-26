@@ -5,7 +5,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
- * Interfaz que define los métodos de comunicación con la API de Rick and Morty.
+ * Interfaz que define los métodos de comunicacion con la API de Rick and Morty
  */
 
 interface APIRickyMortyService {

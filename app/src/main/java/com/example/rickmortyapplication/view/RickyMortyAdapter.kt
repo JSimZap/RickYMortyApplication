@@ -8,6 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rickmortyapplication.R
 import com.example.rickmortyapplication.model.Episodio
 
+/**
+ * Adaptador para la lista de episodios en un RecyclerView
+ * Permite mostrar los episodios y manejar eventos de click en cada uno
+ *
+ * @property episodes Lista de episodios a mostrar
+ * @property onItemClick Funcion de callback que se ejecuta cuando se hace click en un episodio
+ */
 class RickyMortyAdapter(
     private var episodes: List<Episodio>,
     private val onItemClick: (Episodio) -> Unit
@@ -38,6 +45,11 @@ class RickyMortyAdapter(
     override fun getItemCount(): Int = episodes.size
 
 
+    /**
+     * Actualiza la lista de episodios y notifica al adaptador para refrescar la vista
+     *
+     * @param newEpisodes Nueva lista de episodios
+     */
     fun updateEpisodes(newEpisodes: List<Episodio>) {
         episodes = newEpisodes
         notifyDataSetChanged()
