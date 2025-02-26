@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 object RetrofitInstance {
     /**
-     * URL base de la API de Rick and Morty.
+     * URL base de la API de Rick and Morty
      */
     private const val BASE_URL = "https://rickandmortyapi.com/api/"
 
