@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +18,7 @@ import kotlinx.coroutines.launch
 class EpisodioDetalleActivity : AppCompatActivity() {
     private lateinit var episode: Episodio
     private val charactersList: MutableList<Personaje> = mutableListOf<Personaje>()
-    private lateinit var charactersAdapter: CharactersAdapter
+    private lateinit var personajeAdapter: PersonajeAdapter
     private lateinit var binding: ActivityEpisodioDetalleBinding
 
     @SuppressLint("MissingInflatedId")
@@ -37,13 +36,13 @@ class EpisodioDetalleActivity : AppCompatActivity() {
         binding.temporadaEpisodio.text = episode.episode
 
         val charactersRecyclerView: RecyclerView = findViewById(R.id.charactersRecyclerView)
-        charactersAdapter = CharactersAdapter(charactersList) { personaje ->
+        personajeAdapter = PersonajeAdapter(charactersList) { personaje ->
             val intent = Intent(this, PersonajeDetalleActivity::class.java)
             intent.putExtra("personaje", personaje)
             startActivity(intent)
         }
         charactersRecyclerView.layoutManager = LinearLayoutManager(this)
-        charactersRecyclerView.adapter = charactersAdapter
+        charactersRecyclerView.adapter = personajeAdapter
 
 
 
@@ -76,7 +75,7 @@ class EpisodioDetalleActivity : AppCompatActivity() {
 
                 charactersList.clear()
                 charactersList.addAll(characterDetails)
-                charactersAdapter.updateCharacters(characterDetails)
+                personajeAdapter.updateCharacters(characterDetails)
 
             } catch (e: Exception) {
                 e.printStackTrace()

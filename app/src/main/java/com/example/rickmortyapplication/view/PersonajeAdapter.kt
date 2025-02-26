@@ -12,15 +12,15 @@ import com.example.rickmortyapplication.model.Personaje
 import com.squareup.picasso.Picasso
 
 /**
- * Adaptador para la lista de personajes en un RecyclerView.
- * @param characters Lista inicial de personajes.
- * @param onItemClick Acción a ejecutar cuando se hace clic en un personaje.
+ * Adaptador para la lista de personajes
+ * @param personajes Lista inicial de personajes
+ * @param onItemClick Acción a ejecutar cuando se hace clic en un personaje
  */
 
-class CharactersAdapter(
-    private var characters: List<Personaje>,
+class PersonajeAdapter(
+    private var personajes: List<Personaje>,
     private val onItemClick: (Personaje) -> Unit
-) : RecyclerView.Adapter<CharactersAdapter.CharacterViewHolder>() {
+) : RecyclerView.Adapter<PersonajeAdapter.CharacterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
         val view =
@@ -29,31 +29,35 @@ class CharactersAdapter(
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        val character = characters[position]
-        holder.characterName.text = character.name
-        Picasso.get().load(character.image).into(holder.characterImage)
+        val character = personajes[position]
+        holder.nombrePersonaje.text = character.name
+        Picasso.get().load(character.image).into(holder.imagenPersonaje)
         holder.itemView.setOnClickListener {
             onItemClick(character)
         }
     }
 
-    override fun getItemCount(): Int = characters.size
+    override fun getItemCount(): Int = personajes.size
 
 
+    /**
+     * Actualiza la lista de personajes en el adaptador
+     * @param nuevoPersonaje Nueva lista de personajes
+     */
     @SuppressLint("NotifyDataSetChanged")
-    fun updateCharacters(newCharacters: List<Personaje>) {
-        characters = newCharacters
+    fun updateCharacters(nuevoPersonaje: List<Personaje>) {
+        personajes = nuevoPersonaje
         notifyDataSetChanged()
     }
 
     inner class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val characterImage: ImageView = itemView.findViewById(R.id.characterImage)
-        val characterName: TextView = itemView.findViewById(R.id.characterName)
+        val imagenPersonaje: ImageView = itemView.findViewById(R.id.characterImage)
+        val nombrePersonaje: TextView = itemView.findViewById(R.id.characterName)
 
         fun bind(character: Personaje) {
-            characterName.text = character.name
+            nombrePersonaje.text = character.name
 
-            Picasso.get().load(character.image).into(characterImage)
+            Picasso.get().load(character.image).into(imagenPersonaje)
 
         }
     }

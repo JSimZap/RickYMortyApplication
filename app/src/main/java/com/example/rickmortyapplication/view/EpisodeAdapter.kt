@@ -10,7 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rickmortyapplication.R
 import com.example.rickmortyapplication.model.Episodio
 
-class EpisodesAdapter(private var episodes: List<Episodio>) : RecyclerView.Adapter<EpisodesAdapter.EpisodeViewHolder>() {
+/**
+ * Adaptador para la lista de episodios
+ * @param episodes Lista inicial de episodios
+ */
+class EpisodesAdapter(private var episodes: List<Episodio>) :
+    RecyclerView.Adapter<EpisodesAdapter.EpisodeViewHolder>() {
 
     private lateinit var context: Context
 
@@ -32,9 +37,12 @@ class EpisodesAdapter(private var episodes: List<Episodio>) : RecyclerView.Adapt
 
     override fun getItemCount(): Int = episodes.size
 
-
-    fun updateEpisodes(newEpisodes: List<Episodio>) {
-        episodes = newEpisodes
+    /**
+     * Actualiza la lista de episodios en el adaptador
+     * @param nuevosEpisodios Nueva lista de episodios
+     */
+    fun updateEpisodes(nuevosEpisodios: List<Episodio>) {
+        episodes = nuevosEpisodios
         notifyDataSetChanged()
     }
 

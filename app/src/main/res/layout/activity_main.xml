@@ -4,28 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     tools:context=".main.MainActivity">
 
-    <Button
+    <ImageButton
         android:id="@+id/btnEpisodes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Episodios"
+        android:layout_width="258dp"
+        android:layout_height="138dp"
+        android:background="@drawable/episodios"
+        android:backgroundTint="@color/MoradoTitulo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
+        app:layout_constraintVertical_bias="0.784" />
 
     <ImageView
         android:id="@+id/logoImage"
-        android:layout_width="377dp"
-        android:layout_height="281dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/rickymorty"
+        android:layout_width="299dp"
+        android:layout_height="252dp"
+        android:layout_marginTop="104dp"
+        android:src="@drawable/rickymortytitulo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
